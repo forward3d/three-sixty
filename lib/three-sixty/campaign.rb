@@ -15,10 +15,6 @@ module ThreeSixty
       @client.request(resource_url("getInfoByIdList"), idList: campaign_ids)
     end
 
-    def get_id_list_by_campaign_id(campaign_id, opts = {})
-      @client.request(resource_url("getIdListByCampaignId"), opts, campaignId: campaign_id)
-    end
-
     private
 
     def resource_url(service)
