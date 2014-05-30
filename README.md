@@ -12,11 +12,17 @@ A Ruby gem for connecting to the 360 Dianjing AD system, using the Open API Plat
     ThreeSixty.configure(logger: Logger.new($stdout))
 
 
-## Retrieve Tokens
+## Authenticate
 
     require 'three-sixty'
 
     client = ThreeSixty::Client.new(api_key, api_secret)
-    account = ThreeSixty::Account.new(client)
-    account.client_login(username, password)
+    client.authenticate!(username, password)
 
+## Get Campaign Ids
+
+    require 'three-sixty'
+
+    client = ThreeSixty::Client.new(api_key, api_secret)
+    client.authenticate!(username, password)
+    account.get_campaign_id_list
