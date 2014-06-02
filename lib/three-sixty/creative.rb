@@ -7,8 +7,9 @@ module ThreeSixty
       @client = client
     end
 
-    def get_id_list_by_group_id(ad_group_id)
-      @client.request(resource_url("getIdListByGroupId"), groupId: ad_group_id)
+    def get_id_list_by_group_id(ad_group_id, opts = {})
+      opts.merge!(groupId: ad_group_id)
+      @client.request(resource_url("getIdListByGroupId"), opts)
     end
 
     def get_info_by_id(creative_id)
