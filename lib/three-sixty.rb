@@ -3,6 +3,7 @@ require_relative 'three-sixty/account'
 require_relative 'three-sixty/client'
 require_relative 'three-sixty/campaign'
 require_relative 'three-sixty/group'
+require_relative 'three-sixty/creative'
 
 module ThreeSixty
   ThreeSixty.configure
