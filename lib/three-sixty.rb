@@ -5,6 +5,7 @@ require_relative 'three-sixty/campaign'
 require_relative 'three-sixty/group'
 require_relative 'three-sixty/creative'
 require_relative 'three-sixty/keyword'
+require_relative 'three-sixty/report'
 
 module ThreeSixty
   ThreeSixty.configure
