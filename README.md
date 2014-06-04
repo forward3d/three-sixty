@@ -64,3 +64,9 @@ A Ruby gem for connecting to the 360 Dianjing AD system, using the Open API Plat
 
     campaign = ThreeSixty::Campaign.new(client)
     campaign_info = campaign.download_all_campaigns
+
+
+## Download All Ad Groups for a Campaign
+
+    group = ThreeSixty::Group.new(client)
+    group_info = group.download_campaign_all_ad_groups(campaigns_id)
