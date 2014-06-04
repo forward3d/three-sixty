@@ -3,6 +3,8 @@ require 'digest'
 require 'base64'
 require 'json'
 
+require_relative 'core/account'
+
 module ThreeSixty
   class Client
 
@@ -21,7 +23,7 @@ module ThreeSixty
     end
 
     def authenticate!(username, password)
-      account = ThreeSixty::Account.new(self)
+      account = ThreeSixty::Core::Account.new(self)
       tokens = account.client_login(username, generate_passwd(password))
       @access_token = tokens['accessToken']
       @session_token = tokens['sessionToken']
