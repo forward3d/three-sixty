@@ -59,3 +59,8 @@ A Ruby gem for connecting to the 360 Dianjing AD system, using the Open API Plat
     :download_dir - The directory to download the file
     :filename     - The full path of the file you wish to create
     :encoding     - The encoding used when downloading the file
+
+## Download Campaign Info
+
+    campaign = ThreeSixty::Campaign.new(client)
+    campaign_info = campaign.download_all_campaigns
