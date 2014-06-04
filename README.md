@@ -81,3 +81,15 @@ A Ruby gem for connecting to the 360 Dianjing AD system, using the Open API Plat
     ad_group_ids.each do |ad_group_id|
       creatives += creative.download_ad_group_all_creatives(ad_group_id)
     end
+
+
+## Downlod All Keywords for a Campaign
+
+    group = ThreeSixty::Group.new(client)
+    ad_group_ids = group.download_campaign_ad_group_ids(campaign_id)
+
+    keywords = []
+    keyword = ThreeSixty::Keyword.new(client)
+    ad_group_ids.each do |ad_group_id|
+      keywords += keyword.download_ad_group_all_keywords(ad_group_id)
+    end
