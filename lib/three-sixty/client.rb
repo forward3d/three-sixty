@@ -32,9 +32,9 @@ module ThreeSixty
     def request(resource_url, params = {})
       params[:format] = @format
       uri = URI(generate_url(resource_url, params))
-      @logger.info "Resquest url #{uri.to_s}"
+      @logger.debug "Resquest url #{uri.to_s}"
       req = Net::HTTP::Post.new(uri, headers = generate_headers)
-      @logger.info "Sending headers #{headers}"
+      @logger.deug "Sending headers #{headers}"
       res = Net::HTTP.start(uri.host) do |http|
         http.request(req)
       end
