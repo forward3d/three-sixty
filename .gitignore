@@ -2,3 +2,4 @@ documentation/*
 Gemfile*
 .bundle/*
 .ruby*
+*.gem
