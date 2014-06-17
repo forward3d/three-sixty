@@ -3,7 +3,9 @@ A Ruby gem for connecting to the 360 Dianjing AD system, using the Open API Plat
 
 ## Install
 
-    gem 'three-sixty', github: 'forward3d/three-sixty'
+Using bundler, add to your Gemfile
+
+    gem 'three-sixty'
 
 
 ## Configuration
