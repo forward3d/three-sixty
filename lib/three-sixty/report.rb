@@ -5,7 +5,7 @@ module ThreeSixty
 
     def all_keywords(start_date, level)
       keyword_data = []
-      page = 0
+      page = 1
       begin
         keywords = keyword(start_date, level, page: page)['keywordList']
         break if keywords.nil?
@@ -17,7 +17,7 @@ module ThreeSixty
 
     def all_creatives(start_date, level)
       creative_data = []
-      page = 0
+      page = 1
       begin
         creatives = creative(start_date, level, page: page)['creativeList']
         break if creatives.nil?
@@ -29,7 +29,7 @@ module ThreeSixty
 
     def all_regions(start_date, level)
       region_data = []
-      page = 0
+      page = 1
       begin
         regions = region(start_date, level, page: page)['regionList']
         break if regions.nil?
