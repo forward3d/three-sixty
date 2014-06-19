@@ -9,7 +9,7 @@ module ThreeSixty
       begin
         keywords = keyword(start_date, level, page: page)['keywordList']
         break if keywords.nil?
-        keyword_data += keywords unless 
+        keyword_data += keywords
         page += 1
       end while keywords.count >= 1000
       keyword_data
