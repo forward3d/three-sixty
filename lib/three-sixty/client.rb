@@ -34,11 +34,18 @@ module ThreeSixty
       uri = URI(generate_url(resource_url, params))
       @logger.debug "Resquest url #{uri.to_s}"
       req = Net::HTTP::Post.new(uri, headers = generate_headers)
-      @logger.debug "Sending headers #{headers}"
-      res = Net::HTTP.start(uri.host) do |http|
-        http.request(req)
+      retry_counter = 0
+      begin
+        @logger.debug "Sending headers #{headers}"
+        res = Net::HTTP.start(uri.host) do |http|
+          http.request(req)
+        end
+        process_response(res)
+      rescue Net::ReadTimeout => e # Some requests can take a while, so just retry a few times
+        raise e unless retry_counter < 5
+        retry_counter += 1
+        retry
       end
-      process_response(res)
     end
 
     private

@@ -3,3 +3,4 @@ Gemfile*
 .bundle/*
 .ruby*
 *.gem
+.DS_Store
