@@ -9,14 +9,20 @@ module ThreeSixty
 
     def download_ad_group_all_keywords(ad_group_id, opts = {})
       keyword_ids = download_ad_group_keyword_ids(ad_group_id)
-      return [] if keyword_ids.empty?
-      get_info_by_id_list(keyword_ids)["keywordList"]
+      id_list = []
+      keyword_ids.each_slice(500) do |ids|
+        id_list += get_info_by_id_list(ids)["keywordList"]
+      end
+      id_list
     end
 
     def download_ad_group_all_keyword_statuses(ad_group_id, opts = {})
       keyword_ids = download_ad_group_keyword_ids(ad_group_id)
-      return [] if keyword_ids.empty?
-      get_status_by_id_list(keyword_ids)["keywordList"]
+      id_list = []
+      keyword_ids.each_slice(500) do |ids|
+        id_list += get_status_by_id_list(ids)["keywordList"]
+      end
+      id_list
     end
 
     def download_changed_keyword_ids(from_time)
