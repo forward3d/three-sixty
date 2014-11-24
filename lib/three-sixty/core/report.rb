@@ -13,32 +13,32 @@ module ThreeSixty
 
       def keyword_count(start_date, level, opts = {})
         opts.merge!({startDate: start_date, level: level})
-        client_request(resource_url("keywordCount"), opts)
+        client_request(@client, resource_url("keywordCount"), opts)
       end
 
       def keyword(start_date, level, opts = {})
         opts.merge!({startDate: start_date, level: level})
-        client_request(resource_url("keyword"), opts)
+        client_request(@client, resource_url("keyword"), opts)
       end
 
       def creative_count(start_date, level, opts = {})
         opts.merge!({startDate: start_date, level: level})
-        client_request(resource_url("creativeCount"), opts)
+        client_request(@client, resource_url("creativeCount"), opts)
       end
 
       def creative(start_date, level, opts = {})
         opts.merge!({startDate: start_date, level: level})
-        client_request(resource_url("creative"), opts)
+        client_request(@client, resource_url("creative"), opts)
       end
 
       def region_count(start_date, level, opts = {})
         opts.merge!({startDate: start_date, level: level})
-        client_request(resource_url("regionCount"), opts)
+        client_request(@client, resource_url("regionCount"), opts)
       end
 
       def region(start_date, level, opts = {})
         opts.merge!({startDate: start_date, level: level})
-        client_request(resource_url("region"), opts)
+        client_request(@client, resource_url("region"), opts)
       end
 
       private

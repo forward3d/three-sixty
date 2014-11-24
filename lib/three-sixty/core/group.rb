@@ -13,15 +13,15 @@ module ThreeSixty
 
       def get_id_list_by_campaign_id(campaign_id, opts = {})
         opts.merge!(campaignId: campaign_id)
-        client_request(resource_url("getIdListByCampaignId"), opts)
+        client_request(@client, resource_url("getIdListByCampaignId"), opts)
       end
 
       def get_info_by_id(adgroup_id)
-        client_request(resource_url("getInfoById"), id: adgroup_id)
+        client_request(@client, resource_url("getInfoById"), id: adgroup_id)
       end
 
       def get_info_by_id_list(adgroup_ids)
-        client_request(resource_url("getInfoByIdList"), idList: adgroup_ids)
+        client_request(@client, resource_url("getInfoByIdList"), idList: adgroup_ids)
       end
 
       private

@@ -12,11 +12,11 @@ module ThreeSixty
       end
 
       def get_info_by_id(campaign_id)
-        client_request(resource_url("getInfoById"), id: campaign_id)
+        client_request(@client, resource_url("getInfoById"), id: campaign_id)
       end
 
       def get_info_by_id_list(campaign_ids)
-        client_request(resource_url("getInfoByIdList"), idList: campaign_ids)
+        client_request(@client, resource_url("getInfoByIdList"), idList: campaign_ids)
       end
 
       private
