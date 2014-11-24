@@ -1,6 +1,9 @@
+require_relative 'client'
+
 module ThreeSixty
   module Core
     class Account
+      include ThreeSixty::Core::Client
 
       SERVICE_URL = 'account'
 
@@ -9,27 +12,27 @@ module ThreeSixty
       end
 
       def client_login(username, password)
-        @client.request(resource_url("clientLogin"), username: username, passwd: password)
+        client_request(@client, resource_url("clientLogin"), username: username, passwd: password)
       end
 
       def get_campaign_id_list
-        @client.request(resource_url("getCampaignIdList"))
+        client_request(@client, resource_url("getCampaignIdList"))
       end
 
       def get_info
-        @client.request(resource_url("getInfo"))
+        client_request(@client, resource_url("getInfo"))
       end
 
       def get_all_objects(campaign_ids)
-        @client.request(resource_url("getAllObjects"), idList: campaign_ids)
+        client_request(@client, resource_url("getAllObjects"), idList: campaign_ids)
       end
 
       def get_file_state(file_id)
-        @client.request(resource_url("getFileState"), fileId: file_id)
+        client_request(@client, resource_url("getFileState"), fileId: file_id)
       end
 
       def get_exclude_ip
-        @client.request(resource_url("getExcludeIp"))
+        client_request(@client, resource_url("getExcludeIp"))
       end
 
       private
