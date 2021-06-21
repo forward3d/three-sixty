@@ -37,7 +37,7 @@ module ThreeSixty
       retry_counter = 0
       begin
         @logger.debug "Sending headers #{headers}"
-        res = Net::HTTP.start(uri.host) do |http|
+        res = Net::HTTP.start(uri.host, use_ssl: true) do |http|
           http.request(req)
         end
         process_response(res)
@@ -100,7 +100,7 @@ module ThreeSixty
     end
 
     def generate_url(resource_url, query_params = {})
-      endpoint = @endpoint + (resource_url.split("/")[1] == 'clientLogin' ? '/' : '/' << version) # client login doesn't contain version in the url
+      endpoint = @endpoint + (resource_url.split("/")[1] == 'clientLogin' ? '/uc' : '/' << version) # client login doesn't contain version in the url
       [endpoint, resource_url].join('/') << '?' << querystring(query_params)
     end
 
