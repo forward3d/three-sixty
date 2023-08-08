@@ -1,0 +1,17 @@
+name: 'ortho-check'
+
+on: pull_request
+
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    env:
+      USER_PATH: ${PATH}
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+        ruby-version: 3.2.2
+    - name: Run Rubocop
+      run: bundle exec rubocop
