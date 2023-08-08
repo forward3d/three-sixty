@@ -1,0 +1,10 @@
+name: Gem deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  gem_deploy:
+    uses: forward3d/github-actions-workflows/.github/workflows/gem_deploy.yml@main

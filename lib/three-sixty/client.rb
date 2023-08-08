@@ -105,7 +105,7 @@ module ThreeSixty
     end
 
     def querystring(query_params)
-      query_params.map { |key, value| key.to_s << '=' << URI.escape(value.to_s) }.join('&')
+      query_params.map { |key, value| key.to_s << '=' << CGI.escape(value.to_s) }.join('&')
     end
 
   end
