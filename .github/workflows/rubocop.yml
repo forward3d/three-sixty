@@ -1,17 +1,11 @@
-name: 'ortho-check'
+name: 'Styles'
 
 on: pull_request
 
 jobs:
-  rspec:
-    runs-on: ubuntu-latest
-    env:
-      USER_PATH: ${PATH}
-    steps:
-    - uses: actions/checkout@v3
-    - uses: ruby/setup-ruby@v1
-      with:
-        bundler-cache: true
-        ruby-version: 3.2.2
-    - name: Run Rubocop
-      run: bundle exec rubocop
+  styles:
+    uses: forward3d/github-actions-workflows/.github/workflows/styles.yml@main
+    with:
+      working-directory: .
+    secrets:
+      GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
